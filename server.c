@@ -40,3 +40,7 @@ int main() {
         }
     }
 }
+
+int puntuacion(){
+	//El moderador ingresa la puntuacion y se va sumando a cada jugador cleinte
+}

@@ -4,7 +4,7 @@
 #define QUEUE1 0
 #define QUEUE2 1
 #define MUTEX 2
-#define PLAYER 3
+#define PLAYER 4 //JEOPARDY rules
 
 #define SEMS 4
 

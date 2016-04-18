@@ -7,6 +7,8 @@
 #include <string.h>
 #include <errno.h>
 #include "ipc.h"
+#include <sys/msg.h>
+#include <unistd.h>
 
 static int mem_id, *mem_ptr;
 static int sem_id;

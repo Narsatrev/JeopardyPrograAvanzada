@@ -5,6 +5,7 @@
 #include <string.h>
 #include "numbers.h"
 #include "ipc.h"
+#include "preguntas.h"
 
 #define WITH_CURSES
 
@@ -24,16 +25,19 @@ void draw_number(int n, int y, int x) {
 
 int main(void) {
     WINDOW * mainwin;
-    numbers * nu;
+  //  numbers * nu;
+    preguntas * pr;
+    pr = initmem();
 
-    nu = initmem();
+//    nu = initmem();
     initsem();
     initmsgq();
 
-    Wait(PLAYER);
+//    Wait(PLAYER);
         game_id = get_game_id();
+	printf("llego\n");
         printf("game_id=[%d]\n", game_id);
-    Signal(PLAYER);
+  //  Signal(PLAYER);
 
     /*  Initialize ncurses  */
 #ifdef WITH_CURSES
@@ -62,17 +66,18 @@ int main(void) {
 
 #ifdef WITH_CURSES
         color_set(1, NULL);
-        draw_number(nu->serial, max_y/2-6+rand()%5-5, max_x/2-30+rand()%5-5);
+//        draw_number(nu->serial, max_y/2-6+rand()%5-5, max_x/2-30+rand()%5-5);
+	mvaddstr(max_y/2-6+rand()%5-5, max_x/2-30+rand()%5-5, categorias[pr->serial][1]);
         color_set(2, NULL);
-        draw_number(nu->random, max_y/2-6+rand()%5-5, max_x/2+10+rand()%5-5);
+        //draw_number(nu->random, max_y/2-6+rand()%5-5, max_x/2+10+rand()%5-5);
         // refresh();
 #else
-        printf("Status: [%d]-[%d] max_g_id:[%d], n:[%d]\n", nu->serial, nu->random,
+        printf("Status: [%d]-[%d] max_g_id:[%d], n:[%d]\n", pr->serial, pr->random,
                         *max_game_id, *n);
 #endif
 
 #ifdef WITH_CURSES
-        if (nu->random == nu->serial) {
+        if (pr->random == pr->serial) {
             int v;
             halfdelay(30);
             v = getch(); 
@@ -81,7 +86,7 @@ int main(void) {
             if (v == ERR) {
                 mvaddstr(max_y/2, max_x/2, "Demasiado tarde :(");
             } else {
-                if (v-'0' == nu->serial) {
+                if (v-'0' == pr->serial) {
                     manotazo(game_id);
                     mvaddstr(max_y/2, max_x/2, "Enviando, ojalá seas el primero!");
                 } else {

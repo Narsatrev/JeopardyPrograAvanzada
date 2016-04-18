@@ -1,4 +1,4 @@
-ALL= numbers client server
+ALL= numbers client server preguntas
 LDLIBS=-lncurses -lpthread
 CFLAGS=-g
 

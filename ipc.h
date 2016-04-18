@@ -17,6 +17,10 @@ typedef struct {
     int serial, random;
 } numbers;
 
+typedef struct {
+    int serial, random;
+} preguntas;
+
 void *initmem();
 void initsem();
 void initmsgq();

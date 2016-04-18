@@ -1,4 +1,4 @@
-ALL= numbers client server prueba preguntas
+ALL= numbers client server prueba preguntas tablero
 LDLIBS=-lncurses -lpthread
 CFLAGS=-g
 

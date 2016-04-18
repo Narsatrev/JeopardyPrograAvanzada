@@ -81,6 +81,6 @@ char *resp5[5]={
 	"Peru"
 };
 
-char *categ[5] = {"1. 21st CENTURY MOVIES","2. NAME THE CAPITAL","3. ARE YOU GAME?","4. ART","5. COUNTRY BORDERS"};
+char *categ[5] = {"21st CENTURY MOVIES","NAME THE CAPITAL","ARE YOU GAME?","ART","COUNTRY BORDERS"};
 
 char **categorias[5]={cat1,cat2,cat3,cat4,cat5};

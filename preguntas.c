@@ -58,28 +58,30 @@ int main(void) {
 
     nodelay(mainwin, TRUE);
 
+    while(1){
     getmaxyx(stdscr, max_y, max_x);
     clear();
     draw_categories(max_y/2, max_x/2);
     refresh();
 	
     scanf("%d", &seleccionCat);
-//    if(seleccionCat == 1){
+
 	int k;
 	clear();
         for(k = 0; k < 5; k++){
 		draw_number(k, (max_y/2-20)+(k*8), max_x/2-15);  
         }
 	refresh();
-  //  }
-    scanf("%d", &seleccionP);
-//    if(seleccionP == 1){
+
+	scanf("%d", &seleccionP);
+
         clear();
 	printf("seleccion de pregunta: %d\n", seleccionP);
         draw_question(seleccionCat, seleccionP-1, max_y/2, max_x/2);
         refresh();
-  //  }
-    sleep(10);
+
+	sleep(5);
+    }
 
     delwin(mainwin);
     endwin();

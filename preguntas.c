@@ -10,7 +10,6 @@ int max_y = 0, max_x = 0;
 
 void draw_categories(int y, int x) {
     int i;
-
     for(i=0; i<5; i++) {
         mvaddstr(y+i, x, categ[i]);
     }
@@ -23,10 +22,25 @@ void draw_number(int n, int y, int x){
     }
 }
 
-void draw_question(){
-    int i;
+void draw_question(int cat, int p, int y, int x){
+    switch(cat){
+	case 1:
+	mvaddstr(y, x, cat1[p]);
+	break;
+	case 2:
+        mvaddstr(y, x, cat2[p]);
+        break;
+	case 3:
+	mvaddstr(y, x, cat3[p]);
+        break;
+	case 4:
+	mvaddstr(y, x, cat4[p]);
+        break;
+	case 5:
+	mvaddstr(y, x, cat5[p]);
+        break;
+    }
 }
-
 
 int main(void) {
     WINDOW * mainwin;
@@ -40,7 +54,7 @@ int main(void) {
     }
     noecho();
     curs_set(FALSE);
-    start_color();                    /*  Initialize colours  */
+    start_color();
 
     nodelay(mainwin, TRUE);
 
@@ -50,23 +64,21 @@ int main(void) {
     refresh();
 	
     scanf("%d", &seleccionCat);
-    if(seleccionCat == 1){
+//    if(seleccionCat == 1){
 	int k;
 	clear();
         for(k = 0; k < 5; k++){
 		draw_number(k, (max_y/2-20)+(k*8), max_x/2-15);  
         }
 	refresh();
-    }
+  //  }
     scanf("%d", &seleccionP);
-    if(seleccionP == 1){
-        int l;
+//    if(seleccionP == 1){
         clear();
-        for(l = 0; l < 5; l++){
-                draw_number(l, (max_y/2-20)+(l*8), max_x/2-15);
-        }
+	printf("seleccion de pregunta: %d\n", seleccionP);
+        draw_question(seleccionCat, seleccionP-1, max_y/2, max_x/2);
         refresh();
-    }
+  //  }
     sleep(10);
 
     delwin(mainwin);
@@ -75,3 +87,4 @@ int main(void) {
 
     return EXIT_SUCCESS;
 }
+

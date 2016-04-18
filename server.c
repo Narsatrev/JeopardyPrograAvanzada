@@ -5,7 +5,7 @@
 #include "ipc.h"
 
 extern int *max_game_id, *n;
-
+//msg *ply = (msg *)malloc(sizeof(msg));
 void salir(int x) {
     exit(0);
 }
@@ -39,4 +39,20 @@ int main() {
             barrierWaitPhase2();
         }
     }
+}
+
+void puntuacion(int game_id, int puntaje){
+	//El moderador ingresa la puntuacion y se va sumando a cada jugador cleinte
+	int res;
+	msg *ply;
+	res = getchar();
+	if(res=='y'){
+		msg.puntaje = msg.puntaje + 
+	}
+	else if(res=='n'){
+		msg.puntaje = msg.puntaje -	
+	}
+	else {
+		printf("Ingrese \"y\" si fue respuesta correcta o \"n\" si fue incorrecta\n");
+	}
 }

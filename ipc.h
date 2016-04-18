@@ -11,6 +11,7 @@
 typedef struct {
     long mtype;
     int game_id;
+    int puntaje;
 } msg;
 
 typedef struct {

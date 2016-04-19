@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <signal.h>
 #include "ipc.h"
+#include "preguntas.h"
 
 extern int *max_game_id, *n;
 //msg *ply = (msg *)malloc(sizeof(msg));
@@ -47,12 +48,35 @@ void puntuacion(int game_id, int puntaje){
 	msg *ply;
 	res = getchar();
 	if(res=='y'){
-		msg.puntaje = msg.puntaje + 
+	//	msg.puntaje = msg.puntaje + 
 	}
 	else if(res=='n'){
-		msg.puntaje = msg.puntaje -	
+	//	msg.puntaje = msg.puntaje -	
 	}
 	else {
 		printf("Ingrese \"y\" si fue respuesta correcta o \"n\" si fue incorrecta\n");
 	}
+}
+
+void respuesta(int categoria, int pregunta){
+	//asignar la respuesta para mostrarla? no lo hace ncurses?
+	switch(cat){
+		case 1:
+		printf(resp1[pregunta]);
+		break;
+		case 2:
+		printf(resp2[pregunta]);
+		break;
+		case 3:
+		printf(resp3[pregunta]);
+		break;
+		case 4:
+		printf(resp4[pregunta]);
+		break;
+		case 5:
+		printf(resp5[pregunta]);
+		break;
+
+	}
+
 }

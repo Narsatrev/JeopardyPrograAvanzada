@@ -60,7 +60,7 @@ void puntuacion(int game_id, int puntaje){
 
 void respuesta(int categoria, int pregunta){
 	//asignar la respuesta para mostrarla? no lo hace ncurses?
-	switch(cat){
+	switch(categoria){
 		case 1:
 		printf(resp1[pregunta]);
 		break;
@@ -78,5 +78,4 @@ void respuesta(int categoria, int pregunta){
 		break;
 
 	}
-
 }
